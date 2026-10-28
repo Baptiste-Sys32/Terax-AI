@@ -1,22 +1,29 @@
 # Terax AI
 
-Terax AI is a custom Codex-integrated Agentic Development Environment (ADE). It is a specialized fork of Terax reshaped around a unified, keyboard-driven development workflow: a high-performance terminal, advanced code editor, visual source control, web preview, and deep agent sessions co-exist in a single desktop interface rather than scattered across separate tools and tabs.
+Tauri desktop app mixing a terminal, code editor, source control, web previews, and agent sessions in one window. Fork of [crynta/terax-ai](https://github.com/crynta/terax-ai), reshaped around Codex as a workspace tab with persistent sessions, editor and terminal context sharing, and a permission layer over system paths.
 
-This fork is specifically designed to treat agentic coding assistants (like Codex) as first-class, stateful workspace elements, providing them with rich environmental context, robust security boundaries, and high-fidelity control interfaces.
+## What this fork adds
 
-## What This Fork Adds
+* Codex workspace tab instead of floating windows
+* Agent sessions that persist across reloads
+* Agents can read open editor buffers, terminal history, and file selections
+* Permission prompts before agents touch system paths or credentials
+* Inline media and localhost web previews
 
-* **First-Class Codex Workspace Tab** - Integrated dedicated interface for agent interactions rather than relying on floating windows or external terminals.
-* **Persistent Agent Sessions** - Session state and context trees persist across workspace views and application reloads.
-* **Context Bridging and Attachment Plumbing** - Real-time state synchronization allowing agents to access open editor buffers, terminal history, workspace file selections, and direct image/clipboard paste context.
-* **Hardened Security Sandbox** - Enhanced workspace authorization layer enforcing read/write restrictions on system paths, environment credentials, and private directories.
-* **Built-in Media and Web Previews** - Direct inline rendering of supported assets and automatic discovery of localhost web servers inside preview panels.
-* **Large-File Performance Diagnostics** - Optimizations to handle dense project files and heavy command logs efficiently.
+API keys (OpenAI and compatible providers) are entered in settings, kept in the OS keyring, and redacted from logs.
 
-## Upstream
+## Build
 
-This project is a fork of crynta/terax-ai:
-https://github.com/crynta/terax-ai
+```bash
+pnpm install
+pnpm tauri dev
+```
+
+Bundles: `pnpm build:deb`, `pnpm build:appimage`. Needs Rust, Node/pnpm, and Tauri system deps.
+
+## Note
+
+Temporary fork to mess around with. I will not be maintaining it.
 
 ## License
 
